@@ -10,7 +10,7 @@
 #include <Adafruit_NeoMatrix.h>
 #include <Adafruit_NeoPixel.h>
 
-#define PIN 11
+#define PIN 6
 
 //TODO: move to Progmem
 const uint32_t raspberry[] = { 
@@ -51,11 +51,10 @@ uint16_t r,g,b;
 
 void setup() {
 
-  //Set Baudrate to 500k
   Serial.begin(500000);
   Serial.setTimeout(60000);
   matrix.begin();
-  matrix.setBrightness(100);
+  matrix.setBrightness(40);
 
   // draw bootscreen (raspberry)
   for (int c=0;c<10;c++)
@@ -77,7 +76,6 @@ char buffer[200];
 
 
 void loop() {
-  
   Serial.readBytes(buffer,1);
   
   switch(buffer[0])
